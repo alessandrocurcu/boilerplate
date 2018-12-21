@@ -1,0 +1,60 @@
+.btn {
+  position: relative;
+  display: inline-flex;
+  flex: 0 0 auto;
+  justify-content: center;
+  align-self: center;
+  padding: 0 1.25rem;
+  line-height: 2.125rem;
+  font-size: .875rem;
+  font-weight: 400;
+  text-align: center;
+  border-radius: .125rem;
+  border: 2px solid gray;
+  background-color: gray;
+  transition: color .125s ease;
+  overflow: hidden;
+  cursor: pointer;
+  vertical-align: middle;
+  outline: none;
+
+  &:before {
+    background-color: white;
+    content: "";
+    display: flex;
+    transform: scale(1, 0);
+    transition: transform .25s ease;
+    transform-origin: 50% 100%;
+    position: absolute;
+    overflow: hidden;
+    border-radius: 1px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    //will-change: transform; //strange bug with right border
+    z-index: 0;
+  }
+
+  span {
+    display: flex;
+    position: relative;
+    z-index: 1;
+  }
+
+  .icon {
+    line-height: 2.125rem;
+    font-size: 1.25rem;
+    margin: 0 .25rem 0 -.25rem;
+  }
+
+  &:hover,
+  &:active,
+  &:focus {
+    color: black;
+
+    &:before {
+      transform: scale(1, 1);
+    }
+  }
+}
