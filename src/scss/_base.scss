@@ -1,0 +1,53 @@
+$bgc: #f5f6f6; // background-color
+$tc: #424242; // text-color
+
+html {
+  // @include qrq-system-font-stack;
+  -webkit-text-size-adjust: 100%; // [1]
+  -ms-text-size-adjust: 100%; // [1]
+  -webkit-tap-highlight-color: transparent; // [2]
+  box-sizing: border-box; // [3]
+  -webkit-font-smoothing: antialiased; // [4]
+  -moz-osx-font-smoothing: grayscale; // [4]
+  background-color: white;
+  color: $tc;
+  font-feature-settings: "liga", "clig", "pnum", "kern";
+  font-variant-ligatures: common-ligatures;
+  scroll-behavior: smooth;
+  text-rendering: optimizeLegibility;
+  // font-family: 'Open Sans', sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit; // [3]
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.body-wrap {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.img-caption {
+
+  text-align: right;
+  font-family: $secondary-text;
+  font-size: $type-2;
+  font-style: italic;
+  opacity: 0.8;
+  // margin-left: auto;
+}

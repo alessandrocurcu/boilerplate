@@ -1,0 +1,17 @@
+@import "normalize.scss";
+@import '_variables';
+@import '_mixins';
+@import '_base';
+
+:root {
+  font-size: 18px;
+  font-family: $primary-text;
+}
+
+.container {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1200px;
+  min-width: 355px;
+  position: relative;
+}
