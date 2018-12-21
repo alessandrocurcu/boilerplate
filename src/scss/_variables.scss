@@ -1,18 +1,5 @@
-@import url('https://fonts.googleapis.com/css?family=Open+Sans');
-
-$yellow: #FFE066;
-$gray: #E3E3E2;
-$red: #AF2B31;
-$blue: #202C39;
-$white: rgba(255, 255, 255, 0.9);
-$text: #424242;
-
-$primary-color: $red;
-$primary-color--opaque: rgba(175, 43, 49, 0.8);
-$secondary-color: $blue;
-$accent: $yellow;
-$neutral-color: lighten($gray, 6%);
-$text-shadow: 0 1px 2px rgba(0, 0, 0, 0.20);
+$bgc: #f5f6f6; // background-color
+$tc: #424242; // text-color
 
 $vr: 1.5rem;
 $gutter: 1.953rem;
@@ -30,68 +17,3 @@ $type1: 1.25rem;
 $type0: 1rem;
 $type-1: 0.8rem;
 $type-2: 0.64rem;
-
-
-h1 {
-  font-size: $type5;
-}
-
-h2 {
-  font-size: $type4;
-}
-
-h3 {
-  font-size: $type2;
-}
-
-h4 {
-  font-size: $type1;
-}
-
-p {
-  line-height: 1.5;
-}
-
-@mixin primary-theme {
-  background-color: $primary-color;
-  color: $white;
-  text-shadow: $text-shadow;
-}
-
-@mixin secondary-theme {
-  background-color: $secondary-color;
-  color: $white;
-  text-shadow: $text-shadow;
-}
-
-@mixin secondary-dark-theme {
-  background-color: darken($secondary-color, 10%);
-  color: $white;
-  text-shadow: $text-shadow;
-}
-
-@mixin neutral-theme {
-  background-color: $neutral-color;
-  color: rgba(66, 66, 66, 0.9);
-}
-
-@mixin white-theme {
-  background-color: white;
-  color: rgba(66, 66, 66, 0.9);
-}
-
-@mixin accent-theme {
-  background-color: $accent;
-  color: $secondary-color;
-  text-shadow: $text-shadow;
-}
-
-@mixin no-theme {
-  background-color: transparent;
-  color: inherit;
-  text-shadow: none;
-}
-
-$z-indexes: (body: (),
-header: (dropdown, dropdown-2nd, navbar),
-modal: ());
