@@ -54,7 +54,8 @@ const prodjs = () =>
 const js = () =>
   src('./src/js/index.js')
     // .pipe(browserify())
-    .pipe(dest('./js/'));
+    .pipe(dest('./js/'))
+    .pipe(browserSync.stream());
 
 const prodimg = () => src('./img/*.*').pipe(dest('./dist/img/'));
 
@@ -99,7 +100,7 @@ const style = () => {
     .pipe(sass({ importer: moduleImporter() }))
     .pipe(
       autoprefixer({
-        browsers: ['last 6 versions'],
+        grid: true,
       })
     )
     .pipe(beautify())
@@ -121,7 +122,7 @@ const prodstyle = () =>
 const watchFiles = () => {
   watch('./src/scss/*.scss', series(cleanCSS, style));
   watch('./src/views/*.pug', series(cleanHTML, html));
-  // watch('./src/js/*.js', series(cleanJS, js));
+  watch('./src/js/*.js', series(cleanJS, js));
 };
 
 exports.dev = parallel(watchFiles, browserSyncTask);

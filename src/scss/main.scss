@@ -3,3 +3,49 @@
 
 // Componenti
 @import '_button';
+
+// Prove
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: auto;
+  grid-template-areas: ". . uno .";
+  // grid-auto-flow: dense;
+  grid-gap: 20px;
+
+
+  // @supports (display: grid) {
+  //   display: grid;
+  // }
+}
+
+.grid * {
+  // border: 1px solid red;
+}
+
+
+.item:first-child {
+  background-color: salmon;
+  grid-area: uno;
+  // overflow: auto;
+  grid-column: 1 / -1;
+}
+
+
+.item:nth-child(2) {
+  background-color: salmon;
+  grid-area: due;
+  // overflow: auto;
+}
+
+.item:nth-child(3) {
+  grid-area: tre;
+  background-color: salmon;
+}
+
+
+.item:last-child {
+  grid-area: quattro;
+  background-color: rebeccapurple;
+  opacity: 0.9;
+}

@@ -35,6 +35,11 @@ a {
   text-decoration: none;
 }
 
+button {
+  appearance: none;
+  background: trasparent;
+}
+
 .body-wrap {
   display: flex;
   flex-direction: column;
