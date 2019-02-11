@@ -1,51 +1,39 @@
-@import "normalize.scss";
+@import "_custom-normalize";
+@import '_mixins';
+@import '_variables';
 @import '_base';
 
-// Componenti
-@import '_button';
+@import 'components/_button.scss';
+@import 'components/_proof-text.scss';
 
-// Prove
 .grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: auto;
-  grid-template-areas: ". . uno .";
-  // grid-auto-flow: dense;
-  grid-gap: 20px;
+  grid-template-columns: 300px minmax(45ch, 65ch) max-content;
+  grid-template-areas:
+    "header header header"
+    "main  aside   aside2";
+  grid-gap: 30px;
+  grid-auto-flow: column;
 
-
-  // @supports (display: grid) {
-  //   display: grid;
-  // }
+  @include md {
+    grid-template-areas:
+      ". header header"
+      "aside  main   aside2";
+  }
 }
 
-.grid * {
-  // border: 1px solid red;
+h1 {
+  grid-area: header;
 }
 
-
-.item:first-child {
-  background-color: salmon;
-  grid-area: uno;
-  // overflow: auto;
-  grid-column: 1 / -1;
+p:first-of-type {
+  grid-area: main;
 }
 
-
-.item:nth-child(2) {
-  background-color: salmon;
-  grid-area: due;
-  // overflow: auto;
+p:nth-of-type(2) {
+  grid-area: aside;
 }
 
-.item:nth-child(3) {
-  grid-area: tre;
-  background-color: salmon;
-}
-
-
-.item:last-child {
-  grid-area: quattro;
-  background-color: rebeccapurple;
-  opacity: 0.9;
+p:last-of-type {
+  grid-area: aside2;
 }

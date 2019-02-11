@@ -1,0 +1,15 @@
+.proof-text {
+  &__p {
+    // float: left;
+    // width: 60%;
+    @include hyphenate;
+    font-family: roboto, sans-serif;
+    font-weight: regular;
+    font-variant-ligatures: common-ligatures;
+    line-height: 160%;
+
+    &--small-caps {
+      font-variant-caps: small-caps;
+    }
+  }
+}

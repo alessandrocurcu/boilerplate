@@ -72,7 +72,7 @@ $screen-xl-min: 1200px;
 }
 
 // Hyphenate (CSS tricks)
-.hyphenate {
+@mixin hyphenate {
   word-wrap: break word;
   overflow-wrap: break-word;
   hyphens: auto;

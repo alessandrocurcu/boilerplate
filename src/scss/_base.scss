@@ -1,6 +1,3 @@
-@import '_mixins';
-@import '_variables';
-
 :root {
   font-size: 18px;
   @include qrq-system-font-stack;
@@ -12,8 +9,6 @@
   -moz-osx-font-smoothing: grayscale;
   background-color: white;
   color: $tc;
-  font-feature-settings: "liga", "clig", "pnum", "kern";
-  font-variant-ligatures: common-ligatures;
   scroll-behavior: smooth;
   text-rendering: optimizeLegibility;
 }
@@ -21,7 +16,7 @@
 *,
 *::before,
 *::after {
-  box-sizing: inherit; // [3]
+  box-sizing: inherit;
 }
 
 img {
@@ -33,6 +28,11 @@ img {
 a {
   color: inherit;
   text-decoration: none;
+}
+
+p,
+h1 {
+  margin: 0;
 }
 
 button {

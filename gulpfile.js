@@ -4,14 +4,21 @@ const browserSync = require('browser-sync').create();
 const log = require('fancy-log');
 const color = require('ansi-colors');
 const del = require('del');
+const postcss = require('gulp-postcss');
+const autoprefixer = require('autoprefixer');
+
 // HTML
 const pug = require('gulp-pug');
 
 // CSS
 const sass = require('gulp-sass');
-const autoprefixer = require('gulp-autoprefixer');
-const beautify = require('gulp-cssbeautify');
+const gulpStylelint = require('gulp-stylelint');
 const moduleImporter = require('sass-module-importer');
+const cssbeautify = require('gulp-cssbeautify');
+const shortcss = require('postcss-short');
+const cssnext = require('postcss-cssnext');
+const cssnano = require('gulp-cssnano');
+const combineMq = require('gulp-combine-mq');
 
 const defaultTask = cb => {
   cb();
@@ -96,16 +103,41 @@ const prodcleanHTML = cb => {
 
 const style = () => {
   log(color.green('Da SASS a CSS'));
-  return src('./src/scss/main.scss')
-    .pipe(sass({ importer: moduleImporter() }))
-    .pipe(
-      autoprefixer({
-        grid: true,
-      })
-    )
-    .pipe(beautify())
-    .pipe(dest('./css/'))
-    .pipe(browserSync.stream());
+  return (
+    src('./src/scss/main.scss')
+      .pipe(sass({ importer: moduleImporter() }))
+      .pipe(
+        postcss([
+          shortcss({ skip: '-' }),
+          cssnext({
+            features: {
+              autoprefixer: {
+                grid: true,
+                cascade: false,
+              },
+            },
+          }),
+        ])
+      )
+      .pipe(
+        cssbeautify({
+          indent: '  ',
+        })
+      )
+      .pipe(
+        gulpStylelint({
+          reporters: [{ formatter: 'string', console: true }],
+        })
+      )
+      // .pipe(
+      //   combineMq({
+      //     beautify: false,
+      //   })
+      // )
+      // .pipe(cssnano())
+      .pipe(dest('./css/'))
+      .pipe(browserSync.stream())
+  );
 };
 
 const prodstyle = () =>
@@ -120,8 +152,8 @@ const prodstyle = () =>
     .pipe(dest('./dist/css/'));
 
 const watchFiles = () => {
-  watch('./src/scss/*.scss', series(cleanCSS, style));
-  watch('./src/views/*.pug', series(cleanHTML, html));
+  watch('./src/scss/**/*.scss', series(cleanCSS, style));
+  watch('./src/views/**/*.pug', series(cleanHTML, html));
   watch('./src/js/*.js', series(cleanJS, js));
 };
 
