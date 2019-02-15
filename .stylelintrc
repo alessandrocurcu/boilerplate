@@ -5,6 +5,6 @@
     "declaration-colon-space-after": "always",
     "indentation": [2],
     "max-empty-lines": 2,
-    "unit-whitelist": ["ch", "fr", "vh", "px", "em", "rem", "%", "s"]
+    "unit-whitelist": ["deg", ch", "fr", "vh", "px", "em", "rem", "%", "s"]
   }
 }

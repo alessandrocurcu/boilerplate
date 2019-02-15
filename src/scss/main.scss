@@ -4,23 +4,8 @@
 @import '_base';
 
 @import 'components/_button.scss';
+@import 'components/card/_card1.scss';
 @import 'components/_proof-text.scss';
-
-.grid {
-  display: grid;
-  grid-template-columns: 300px minmax(45ch, 65ch) max-content;
-  grid-template-areas:
-    "header header header"
-    "main  aside   aside2";
-  grid-gap: 30px;
-  grid-auto-flow: column;
-
-  @include md {
-    grid-template-areas:
-      ". header header"
-      "aside  main   aside2";
-  }
-}
 
 h1 {
   grid-area: header;
