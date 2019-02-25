@@ -194,5 +194,21 @@ $screen-xl-min: 1200px;
   @return z-index($key1, $key2);
 }
 
-// Form
-// input.dirty:not(:focus):invalid {}
+
+@mixin aspect-ratio($width, $height) {
+  position: relative;
+  padding-bottom: ($height / $width) * 100%;
+  img,
+  video,
+  iframe,
+  object,
+  embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+}
+
+// @include aspect-ratio(1600, 900); da mettere sulla figure

@@ -3,7 +3,6 @@
     "block-no-empty": true,
     "color-no-invalid-hex": true,
     "declaration-colon-space-after": "always",
-    "indentation": [2],
     "max-empty-lines": 2,
     "unit-whitelist": ["deg", ch", "fr", "vh", "px", "em", "rem", "%", "s"]
   }

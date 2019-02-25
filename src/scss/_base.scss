@@ -40,6 +40,12 @@ button {
   background: trasparent;
 }
 
+figure {
+  background: #ddd url(./../src/img/camera-solid.svg) no-repeat center center;
+  background-size: 40px 40px;
+  @include aspect-ratio(1200, 800);
+}
+
 .body-wrap {
   display: flex;
   flex-direction: column;

@@ -28,6 +28,7 @@ const combineMq = require('gulp-combine-mq');
 // IMG
 const imagemin = require('gulp-imagemin');
 const image = require('gulp-image');
+const webp = require('gulp-webp');
 
 const defaultTask = cb => {
   cb();
@@ -74,6 +75,7 @@ const js = () =>
   .pipe(browserSync.stream());
 
 const prodimg = () => src('./src/img/*.*').pipe(dest('./dist/img'));
+const prodimgwebp = () => src('./src/img/*.*').pipe(webp()).pipe(dest('./dist/img/webp'));
 
 const optimizeImage = () => src('./src/img-not/*.*').pipe(imagemin()).pipe(image({
   optipng: ['-i 1', '-strip all', '-fix', '-o7', '-force'],
@@ -198,7 +200,7 @@ const prodstyle = () =>
 const watchFiles = () => {
   watch('./src/scss/**/*.scss', series(cleanCSS, style));
   watch('./src/views/**/*.pug', series(cleanHTML, html));
-  watch('./src/js/*.js', series(cleanJS, js));
+  // watch('./src/js/*.js', series(cleanJS, js));
 };
 
 exports.dev = parallel(watchFiles, browserSyncTask);
@@ -208,6 +210,6 @@ exports.build = parallel(
   series(prodcleanHTML, prodhtml),
   series(prodcleanCSS, prodstyle),
   series(prodcleanJS, prodjs),
-  series(prodcleanimg, prodimg)
+  series(prodcleanimg, prodimg, prodimgwebp)
 );
 

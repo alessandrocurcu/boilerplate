@@ -262,6 +262,25 @@ button {
   background: trasparent;
 }
 
+figure {
+  background: #ddd url(./../src/img/camera-solid.svg) no-repeat center center;
+  background-size: 40px 40px;
+  position: relative;
+  padding-bottom: 66.66667%;
+}
+
+figure img,
+  figure video,
+  figure iframe,
+  figure object,
+  figure embed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
 .body-wrap {
   display: -webkit-box;
   display: -webkit-flex;
