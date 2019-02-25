@@ -78,7 +78,7 @@ svg:not(:root) {
 }
 
 figure {
-  margin: 1em 40px;
+  margin: 0;
 }
 
 hr {
@@ -209,6 +209,11 @@ th {
 .dropshadowBox {
   -webkit-box-shadow: 0px 0px 26px -1px rgba(0, 0, 0, .6);
   box-shadow: 0px 0px 26px -1px rgba(0, 0, 0, .6);
+}
+
+h2 {
+  font-size: 22.5px;
+  font-size: 1.25rem;
 }
 
 :root {
@@ -421,18 +426,39 @@ button {
   font-variant-caps: small-caps;
 }
 
-h1 {
-  grid-area: header;
+.flex-parent {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  background-color: red;
+  width: 100%;
+  overflow: auto;
 }
 
-p:first-of-type {
-  grid-area: main;
+.flex-child {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1 0 200px;
+  -ms-flex: 1 0 200px;
+  flex: 1 0 200px;
+  padding: 27px;
+  padding: 1.5rem;
+  background-color: whitesmoke;
 }
 
-p:nth-of-type(2) {
-  grid-area: aside;
+.flex-child:first-child {
+  background-color: salmon;
 }
 
-p:last-of-type {
-  grid-area: aside2;
+.flex-child:last-child {
+  background-color: lightblue;
+}
+
+figure img {
+  -o-object-fit: cover;
+  object-fit: cover;
+  width: 100%;
 }

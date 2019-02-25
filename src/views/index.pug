@@ -13,7 +13,16 @@ block main
   //-   P Prova 6
   //-   P Prova 7
   section.container.grid
-    h1 Prova
-    include components/card/_card1.pug
+    section
+      h2 Prove flex
+      .container
+        .flex-parent
+          .flex-child 1 Lorem ipsum dolor sit amet.
+          .flex-child 2 Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, qui. Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae, ducimus assumenda. Atque earum praesentium inventore minus harum quisquam, placeat ea!
+          .flex-child 3 Lorem ipsum dolor sit amet consectetur adipisicing elit.
+    section
+      h2  Prove immagini
+      figure
+        img(src='https://source.unsplash.com/random', alt='Placeholder Image')
 block mainScript
   script(src="js/index.js")
