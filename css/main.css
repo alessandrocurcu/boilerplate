@@ -195,6 +195,30 @@ th {
   padding: 0;
 }
 
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+p,
+h1,
+h2 {
+  margin: 0;
+}
+
+button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: trasparent;
+}
+
 .sr-only {
   position: absolute;
   width: 1px;
@@ -237,29 +261,6 @@ h2 {
 *::after {
   -webkit-box-sizing: inherit;
   box-sizing: inherit;
-}
-
-img {
-  display: block;
-  max-width: 100%;
-  height: auto;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-p,
-h1 {
-  margin: 0;
-}
-
-button {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  background: trasparent;
 }
 
 figure {
@@ -389,6 +390,16 @@ figure img,
   transform: scale(1, 1);
 }
 
+.card-grid {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (300px)[8];
+  grid-template-columns: repeat(8, 300px);
+  grid-gap: 20px;
+  margin-bottom: 54px;
+  margin-bottom: 3rem;
+}
+
 .card1 {
   width: 300px;
   height: 400px;
@@ -422,6 +433,39 @@ figure img,
   line-height: 1.2;
   font-weight: 700;
   color: white;
+}
+
+.card2 {
+  width: 300px;
+  height: 400px;
+  background-color: #24252A;
+  padding: 20px;
+  position: relative;
+}
+
+.card2 p {
+  font-size: 24px;
+  line-height: 1.2;
+  font-weight: 700;
+  color: white;
+}
+
+.card2:before {
+  content: '';
+  display: block;
+  height: auto;
+  top: 18px;
+  top: 1rem;
+  right: -18px;
+  right: -1rem;
+  bottom: -18px;
+  bottom: -1rem;
+  left: 18px;
+  left: 1rem;
+  position: absolute;
+  z-index: -1;
+  background: -webkit-gradient(linear, left top, right top, from(#6dd5ed), to(#2193b0));
+  background: linear-gradient(to right, #6dd5ed, #2193b0);
 }
 
 .proof-text__p {
@@ -474,6 +518,24 @@ figure img,
 
 .flex-child:last-child {
   background-color: lightblue;
+}
+
+.header {
+  z-index: 1;
+  background-color: red;
+}
+
+@media (min-height: 200px) {
+  .header {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+  }
+}
+
+.header-wrapper {
+  height: 400px;
+  background-color: blue;
 }
 
 figure img {

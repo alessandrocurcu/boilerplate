@@ -19,12 +19,30 @@
   flex: 1 0 200px;
   padding: $vr;
   background-color: whitesmoke;
+
   &:first-child {
     background-color: salmon;
   }
+
   &:last-child {
     background-color: lightblue;
   }
+}
+
+.header {
+  z-index: z(header);
+  background-color: red;
+
+
+  @include mh(200) {
+    position: sticky;
+    top: 0;
+  }
+}
+
+.header-wrapper {
+  height: 400px;
+  background-color: blue;
 }
 
 // Immgini

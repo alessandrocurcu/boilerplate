@@ -46,6 +46,13 @@ $screen-xl-min: 1200px;
   }
 }
 
+// Custom devices height
+@mixin mh($screen) {
+  @media (min-height: $screen+'px') {
+    @content;
+  }
+}
+
 // https://medium.com/codeartisan/breakpoints-and-media-queries-in-scss-46e8f551e2f2
 
 
@@ -174,6 +181,7 @@ $screen-xl-min: 1200px;
   background-color: $colore;
 }
 
+// https://medium.com/alistapart/sassier-z-index-management-for-complex-layouts-4540717a9488
 @function z-index($key1, $key2: null) {
   $map: $z-indexes;
   $found-index: null;
@@ -194,6 +202,8 @@ $screen-xl-min: 1200px;
   @return z-index($key1, $key2);
 }
 
+// Aspect ratio
+// @include aspect-ratio(1600, 900); da mettere sulla figure
 
 @mixin aspect-ratio($width, $height) {
   position: relative;
@@ -210,5 +220,3 @@ $screen-xl-min: 1200px;
     bottom: 0;
   }
 }
-
-// @include aspect-ratio(1600, 900); da mettere sulla figure
