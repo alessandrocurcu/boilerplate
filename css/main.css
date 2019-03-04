@@ -302,6 +302,12 @@ figure img,
   min-width: 360px;
 }
 
+/*
+  .gallery-grid {
+    include grid;
+    @include gridAuto(260px);
+  }
+*/
 .btn {
   position: relative;
   display: -webkit-inline-box;
@@ -390,6 +396,27 @@ figure img,
   transform: scale(1, 1);
 }
 
+.proof-text__p {
+  word-wrap: break word;
+  word-wrap: break-word;
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto;
+  font-family: roboto, sans-serif;
+  font-weight: 400;
+  -webkit-font-feature-settings: "liga", "clig";
+  font-feature-settings: "liga", "clig";
+  -webkit-font-variant-ligatures: common-ligatures;
+  font-variant-ligatures: common-ligatures;
+  line-height: 160%;
+}
+
+.proof-text__p--small-caps {
+  -webkit-font-feature-settings: "c2sc";
+  font-feature-settings: "c2sc";
+  font-variant-caps: small-caps;
+}
+
 .card-grid {
   display: -ms-grid;
   display: grid;
@@ -468,25 +495,24 @@ figure img,
   background: linear-gradient(to right, #6dd5ed, #2193b0);
 }
 
-.proof-text__p {
-  word-wrap: break word;
-  word-wrap: break-word;
-  -webkit-hyphens: auto;
-  -ms-hyphens: auto;
-  hyphens: auto;
-  font-family: roboto, sans-serif;
-  font-weight: 400;
-  -webkit-font-feature-settings: "liga", "clig";
-  font-feature-settings: "liga", "clig";
-  -webkit-font-variant-ligatures: common-ligatures;
-  font-variant-ligatures: common-ligatures;
-  line-height: 160%;
+.grid {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr (minmax(auto, 80px))[12] 1fr;
+  grid-template-columns: 1fr repeat(12, minmax(auto, 80px)) 1fr;
+  grid-gap: 20px;
 }
 
-.proof-text__p--small-caps {
-  -webkit-font-feature-settings: "c2sc";
-  font-feature-settings: "c2sc";
-  font-variant-caps: small-caps;
+.grid__item {
+  border: 1px solid red;
+}
+
+.grid__item:nth-child(9) {
+  background-color: orange;
+}
+
+.grid__item:nth-child(7) {
+  background-color: salmon;
 }
 
 .flex-parent {

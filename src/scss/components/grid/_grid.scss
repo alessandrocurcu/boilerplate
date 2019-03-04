@@ -1,0 +1,19 @@
+.grid {
+  display: grid;
+  grid-template-columns: 1fr repeat(12, minmax(auto, 80px)) 1fr; 
+  grid-gap: 20px;
+
+  &__item {
+    border: 1px solid red;
+
+    &:nth-child(9) {
+      background-color: orange;
+      
+    }
+
+    &:nth-child(7) {
+      background-color: salmon;
+     
+    }
+  }
+}

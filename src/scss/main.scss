@@ -2,10 +2,12 @@
 @import '_mixins';
 @import '_variables';
 @import '_base';
+@import '_layout';
 
 @import 'components/_button.scss';
-@import 'components/card/_card1.scss';
 @import 'components/_proof-text.scss';
+@import 'components/card/_card1.scss';
+@import 'components/grid/_grid.scss';
 
 .flex-parent {
   display: flex;
